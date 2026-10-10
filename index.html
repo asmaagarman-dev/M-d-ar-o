@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#b8679d">
+<title>مفكرتي</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#b8679d;--on:#fff;--r:20px;--rs:12px;--fs:17px;--bg:#f1eff7;--fg:#2a2540;--mut:#756f8c;--card:#fff;--line:#e2dff0;--sheet:rgba(247,245,252,.8);
+--bgimg:radial-gradient(60vmax 60vmax at 8% 4%,rgba(255,190,222,.7),transparent 62%),radial-gradient(55vmax 55vmax at 96% 8%,rgba(184,210,255,.75),transparent 62%),radial-gradient(60vmax 60vmax at 88% 96%,rgba(190,250,228,.7),transparent 62%),radial-gradient(52vmax 52vmax at 4% 92%,rgba(255,238,190,.65),transparent 62%),radial-gradient(40vmax 40vmax at 50% 50%,rgba(222,204,255,.45),transparent 70%),linear-gradient(135deg,#eceff5,#f8f6fc 50%,#e8edf5)}
+[data-mode=dark]{--bg:#15121f;--fg:#f0edfa;--mut:#a29cbb;--card:#201b30;--line:#342d4a;--sheet:rgba(30,25,46,.82);
+--bgimg:radial-gradient(60vmax 60vmax at 8% 4%,rgba(255,120,180,.3),transparent 62%),radial-gradient(55vmax 55vmax at 96% 8%,rgba(110,150,255,.3),transparent 62%),radial-gradient(60vmax 60vmax at 88% 96%,rgba(90,225,200,.22),transparent 62%),radial-gradient(52vmax 52vmax at 4% 92%,rgba(255,210,120,.16),transparent 62%),linear-gradient(135deg,#171326,#1d1730 50%,#141222)}
+[data-card=glass]{--card:rgba(255,255,255,.55);--line:rgba(255,255,255,.88)}
+[data-mode=dark][data-card=glass]{--card:rgba(255,255,255,.07);--line:rgba(255,255,255,.17)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{background:var(--bg)}html,body{margin:0}body{background:transparent;color:var(--fg);font:400 var(--fs)/1.7 'IBM Plex Sans Arabic',system-ui,sans-serif}body::before{content:'';position:fixed;inset:0;z-index:-1;background:var(--bgimg);pointer-events:none}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+h1{font:700 1.7em/1.3 'Aref Ruqaa','IBM Plex Sans Arabic',serif;margin:0;flex:1}
+h2{font-size:1.15em;margin:0 0 12px}
+small,.mut{color:var(--mut);font-size:.82em}
+.barw{position:sticky;top:0;z-index:5;background:var(--bg);padding-top:env(safe-area-inset-top)}
+.bar{max-width:640px;margin:0 auto;display:flex;align-items:center;gap:8px;padding:10px 16px}
+.wrap{max-width:640px;margin:0 auto;padding:4px 16px calc(100px + env(safe-area-inset-bottom))}
+.ib{width:42px;height:42px;border-radius:var(--rs);background:var(--card);border:1.5px solid var(--line);font-size:1.1em;display:grid;place-items:center;text-decoration:none;color:var(--fg)}
+.inp{width:100%;background:var(--card);border:1.5px solid var(--line);border-radius:var(--r);padding:11px 16px;outline:none;margin-bottom:14px}
+.inp:focus{border-color:var(--accent)}
+.card{background:var(--card);border-radius:var(--r);padding:14px 16px;display:block;color:var(--fg);text-decoration:none;cursor:pointer}
+[data-card=line] .card{border:1.5px solid var(--line)}
+[data-card=shadow] .card{box-shadow:0 2px 12px rgba(0,0,0,.1)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.list{display:grid;gap:10px}
+.cat{position:relative;min-height:96px;display:flex;flex-direction:column;gap:2px}
+.cat .ib{position:absolute;inset-block-start:6px;inset-inline-end:6px;width:34px;height:34px;border:0;background:none}
+.dot{width:14px;height:14px;border-radius:var(--rs);background:var(--c);display:block;margin-bottom:6px}
+.item b{display:block}
+.sn{color:var(--mut);font-size:.9em;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+mark{background:color-mix(in srgb,var(--accent) 30%,transparent);color:inherit;border-radius:3px;padding:0 2px}
+.fab{position:fixed;inset-block-end:calc(20px + env(safe-area-inset-bottom));inset-inline-end:20px;width:58px;height:58px;border-radius:min(var(--r),29px);background:var(--accent);color:var(--on);font-size:32px;line-height:1;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.btn{background:var(--accent);color:var(--on);padding:10px 20px;border-radius:var(--rs);font-weight:600}
+.btn.sec{background:var(--card);color:var(--fg);border:1.5px solid var(--line)}
+.btn.dng{background:none;color:#c0392b;border:1.5px solid #c0392b}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:16px}
+.chip{padding:7px 14px;border-radius:var(--rs);border:1.5px solid var(--line);background:var(--card)}
+.chip.on{background:var(--accent);color:var(--on);border-color:var(--accent)}
+.sw{width:34px;height:34px;border-radius:var(--rs);background:var(--c);border:3px solid transparent;outline:1.5px solid var(--line)}
+.sw.on{border-color:var(--bg);outline:2.5px solid var(--fg)}
+input[type=color]{width:34px;height:34px;padding:0;border:0;background:none}
+.lb{margin:0 0 6px;font-weight:600;font-size:.92em}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:20;display:flex}
+.sh{background:var(--bg);width:100%;max-width:640px;margin:auto auto 0;border-radius:var(--r) var(--r) 0 0;padding:20px 20px calc(20px + env(safe-area-inset-bottom));max-height:88vh;overflow:auto}
+.title{font-size:1.4em;font-weight:600;border:0;background:none;width:100%;padding:6px 0;outline:none}
+.body{border:0;background:none;width:100%;resize:none;outline:none;min-height:55vh;line-height:1.95}
+.empty{text-align:center;color:var(--mut);padding:48px 12px}
+.login{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:16px;padding:24px;text-align:center}
+.toast{position:fixed;inset-inline:16px;inset-block-end:90px;background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:var(--rs);z-index:30;text-align:center}
+select.inp{width:auto;padding:6px 12px;margin:0}
+:is([data-card=glass]) :is(.card,.inp,.ib,.chip,.btn.sec){-webkit-backdrop-filter:blur(16px) saturate(160%);backdrop-filter:blur(16px) saturate(160%)}
+[data-card=glass] .card,[data-card=glass] .ib,[data-card=glass] .inp{box-shadow:0 8px 28px rgba(130,110,170,.15),inset 0 1px 0 rgba(255,255,255,.7);border:1px solid var(--line)}
+[data-mode=dark][data-card=glass] .card,[data-mode=dark][data-card=glass] .ib,[data-mode=dark][data-card=glass] .inp{box-shadow:0 8px 28px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.1)}
+[data-card=glass] .barw{background:color-mix(in srgb,var(--bg) 45%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+[data-card=glass] .sh{background:var(--sheet);-webkit-backdrop-filter:blur(26px) saturate(160%);backdrop-filter:blur(26px) saturate(160%);border:1px solid var(--line);border-bottom:0}
+.cat{background-image:linear-gradient(160deg,color-mix(in srgb,var(--c) 18%,transparent),transparent 62%)}
+.dot{background:radial-gradient(circle at 30% 28%,rgba(255,255,255,.85),transparent 55%),var(--c);box-shadow:0 3px 10px color-mix(in srgb,var(--c) 55%,transparent);width:18px;height:18px;border-radius:50%}
+.fab,.btn{background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 62%,#ffd3ec))}
+.fab{box-shadow:0 8px 22px color-mix(in srgb,var(--accent) 45%,transparent),inset 0 1px 0 rgba(255,255,255,.5)}
+.btn.sec,.btn.dng{background:var(--card)}
+.sw{box-shadow:inset 0 0 0 1px rgba(255,255,255,.5)}
+.flower{color:var(--accent);font-size:.7em;margin-inline-start:6px;vertical-align:middle}
+.empty::before{content:'✿';display:block;font-size:2em;color:var(--accent);opacity:.7;margin-bottom:6px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="sheet"></div>
+
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getAuth,GoogleAuthProvider,signInWithPopup,signInWithRedirect,onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {initializeFirestore,persistentLocalCache,persistentMultipleTabManager,collection,doc,setDoc,deleteDoc,onSnapshot,writeBatch} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* ===== الصق هنا إعدادات Firebase الخاصة بك ===== */
+const firebaseConfig = {
+  apiKey: "AIzaSyB6GA0iUdiRtcQxkqa5u9dOPjL2I8QmlLM",
+  authDomain: "nota-47b0d.firebaseapp.com",
+  projectId: "nota-47b0d",
+  appId: "1:791139186572:web:5e6d05e8d854bff454c8a9"
+};
+/* =============================================== */
+
+const configured = !firebaseConfig.apiKey.includes("PASTE_HERE");
+let auth, db;
+if (configured) {
+  const fb = initializeApp(firebaseConfig);
+  auth = getAuth(fb);
+  db = initializeFirestore(fb, {localCache: persistentLocalCache({tabManager: persistentMultipleTabManager()})});
+}
+
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = ms => ms ? new Date(ms).toLocaleDateString('ar', {day:'numeric', month:'short'}) : '';
+const COLORS = ['#b8679d','#e58fb0','#9b8bd6','#7fa7e0','#6cc3b5','#e7b66b','#d98a7a','#8f9aa8'];
+
+/* ---------- البحث: تجاهل التشكيل والهمزات ---------- */
+function nm(s) {
+  let t = '', map = [];
+  s = String(s || '');
+  for (let i = 0; i < s.length; i++) {
+    let c = s[i];
+    if (/[\u064B-\u065F\u0670\u0640]/.test(c)) continue;
+    c = c.toLowerCase().replace(/[أإآٱ]/, 'ا').replace('ة', 'ه').replace('ى', 'ي');
+    t += c; map.push(i);
+  }
+  return {t, map};
+}
+const words = q => nm(q).t.split(/\s+/).filter(Boolean);
+const match = (n, w) => { const h = nm((n.title || '') + ' ' + (n.body || '')).t; return w.every(x => h.includes(x)); };
+function snip(n, w) {
+  const b = n.body || '', B = nm(b), i = w[0] ? B.t.indexOf(w[0]) : -1;
+  if (i < 0) return esc(b.slice(0, 100));
+  const s = B.map[i], e = B.map[i + w[0].length - 1] + 1;
+  return (s > 40 ? '…' : '') + esc(b.slice(Math.max(0, s - 40), s)) + '<mark>' + esc(b.slice(s, e)) + '</mark>' + esc(b.slice(e, e + 80));
+}
+
+/* ---------- المظهر ---------- */
+let theme = {accent:'#b8679d', mode:'auto', radius:20, card:'glass', fs:17, ...JSON.parse(localStorage.getItem('theme') || '{}')};
+function applyTheme() {
+  const r = document.documentElement, s = r.style;
+  s.setProperty('--accent', theme.accent);
+  const [R, G, B] = [1, 3, 5].map(i => parseInt(theme.accent.slice(i, i + 2), 16));
+  s.setProperty('--on', (R * 299 + G * 587 + B * 114) / 1000 > 150 ? '#111' : '#fff');
+  s.setProperty('--r', theme.radius + 'px');
+  s.setProperty('--rs', Math.round(theme.radius * .6) + 'px');
+  s.setProperty('--fs', theme.fs + 'px');
+  r.dataset.mode = theme.mode === 'auto' ? (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light') : theme.mode;
+  r.dataset.card = theme.card;
+  $('meta[name=theme-color]').content = theme.accent;
+}
+function setTheme(p, save = true) {
+  theme = {...theme, ...p}; applyTheme();
+  if (save) {
+    localStorage.setItem('theme', JSON.stringify(theme));
+    if (user) setDoc(doc(db, 'users', user.uid, 'meta', 'theme'), theme);
+  }
+}
+applyTheme();
+
+/* ---------- الحالة ---------- */
+let user = null, cats = [], notes = [], unsubs = [], catsOk = false, notesOk = false;
+let q = '', cq = '', editorReady = false, pendingFlush = null, sheetColor = COLORS[0];
+const loaded = () => catsOk && notesOk;
+const col = p => collection(db, 'users', user.uid, p);
+const toast = m => { const t = document.createElement('div'); t.className = 'toast'; t.textContent = m; document.body.append(t); setTimeout(() => t.remove(), 3500); };
+
+if (configured) onAuthStateChanged(auth, u => {
+  unsubs.forEach(f => f()); unsubs = [];
+  user = u; cats = []; notes = []; catsOk = notesOk = false;
+  if (u) {
+    unsubs.push(onSnapshot(col('cats'), s => { cats = s.docs.map(d => ({id:d.id, ...d.data()})).sort((a, b) => a.createdAt - b.createdAt); catsOk = true; refresh(); }));
+    unsubs.push(onSnapshot(col('notes'), s => { notes = s.docs.map(d => ({id:d.id, ...d.data()})); notesOk = true; refresh(); }));
+    unsubs.push(onSnapshot(doc(db, 'users', u.uid, 'meta', 'theme'), s => { if (s.exists()) { theme = {...theme, ...s.data()}; localStorage.setItem('theme', JSON.stringify(theme)); applyTheme(); } }));
+  }
+  render();
+});
+else render();
+
+function refresh() { if (loaded() && !(R()[0] === 'n' && editorReady)) render(); else if (!loaded()) render(); }
+
+/* ---------- التوجيه ---------- */
+const R = () => location.hash.slice(1).split('/').filter(Boolean);
+addEventListener('hashchange', () => { closeSheet(); render(); });
+addEventListener('pagehide', () => pendingFlush && pendingFlush());
+document.addEventListener('visibilitychange', () => document.hidden && pendingFlush && pendingFlush());
+
+function render() {
+  if (pendingFlush) { pendingFlush(); pendingFlush = null; }
+  editorReady = false;
+  if (!user) return loginView();
+  if (!loaded()) { $('#app').innerHTML = '<div class="empty">جارٍ التحميل…</div>'; return; }
+  const [a, b, c] = R();
+  if (a === 'c' && cats.find(x => x.id === b)) catView(b);
+  else if (a === 'n') noteView(b, c);
+  else homeView();
+  window.scrollTo(0, 0);
+}
+
+/* ---------- الشاشات ---------- */
+function loginView() {
+  $('#app').innerHTML = `<div class="login">
+    <h1 style="flex:none;font-size:2.6em">مفكرتي<span class="flower">✿</span></h1>
+    <p class="mut" style="max-width:300px;margin:0">دوّن ما تسمعه في فئته، وابحث عنه متى احتجته.</p>
+    ${configured ? '<button class="btn" data-act="login">الدخول بحساب Google</button>'
+      : '<p style="color:#c0392b;max-width:320px">لم تُضف إعدادات Firebase بعد. افتح الملف index.html واستبدل كلمة PASTE_HERE بقيم مشروعك.</p>'}
+  </div>`;
+}
+
+function homeView() {
+  $('#app').innerHTML = `<div class="barw"><div class="bar"><h1>مفكرتي<span class="flower">✿</span></h1><button class="ib" data-act="theme" aria-label="المظهر">🎨</button></div></div>
+  <div class="wrap"><input id="q" class="inp" type="search" placeholder="ابحث في كل الفئات" value="${esc(q)}" autocomplete="off"><div id="res"></div></div>
+  <button class="fab" data-act="newcat" aria-label="فئة جديدة">+</button>`;
+  fillHome();
+}
+function itemHTML(n, w, showCat) {
+  const c = cats.find(x => x.id === n.catId);
+  return `<a class="card item" href="#/n/${n.id}"><b>${esc(n.title) || 'بدون عنوان'}</b><div class="sn">${snip(n, w)}</div>
+  <small>${showCat && c ? esc(c.name) + ' — ' : ''}${fmt(n.updatedAt)}</small></a>`;
+}
+function fillHome() {
+  const res = $('#res'); if (!res) return;
+  const w = words(q);
+  if (w.length) {
+    const r = notes.filter(n => match(n, w)).sort((a, b) => b.updatedAt - a.updatedAt);
+    res.innerHTML = r.length ? `<div class="list">${r.map(n => itemHTML(n, w, true)).join('')}</div>` : `<div class="empty">لا نتائج لـ «${esc(q)}»</div>`;
+    return;
+  }
+  if (!cats.length) { res.innerHTML = '<div class="empty">أنشئ أول فئة بزر + مثل: صحة، برمجة، دين.</div>'; return; }
+  res.innerHTML = `<div class="grid">${cats.map(c => {
+    const n = notes.filter(x => x.catId === c.id).length;
+    return `<div class="card cat" data-go="#/c/${c.id}" style="--c:${c.color}"><i class="dot" style="--c:${c.color}"></i><b>${esc(c.name)}</b>
+    <small>${n ? (n === 1 ? 'صفحة واحدة' : n + ' صفحات') : 'فارغة'}</small>
+    <button class="ib" data-act="editcat" data-id="${c.id}" aria-label="تعديل الفئة">⋯</button></div>`;
+  }).join('')}</div>`;
+}
+
+function catView(id) {
+  const c = cats.find(x => x.id === id);
+  $('#app').innerHTML = `<div class="barw"><div class="bar"><a class="ib" href="#/" aria-label="رجوع">→</a><h1>${esc(c.name)}</h1>
+  <button class="ib" data-act="editcat" data-id="${id}" aria-label="تعديل الفئة">⋯</button></div></div>
+  <div class="wrap"><input id="cq" class="inp" type="search" placeholder="ابحث في هذه الفئة" value="${esc(cq)}" autocomplete="off"><div id="res"></div></div>
+  <button class="fab" data-act="newnote" data-id="${id}" aria-label="صفحة جديدة">+</button>`;
+  fillCat(id);
+}
+function fillCat(id) {
+  const res = $('#res'); if (!res) return;
+  const w = words(cq);
+  const r = notes.filter(n => n.catId === id && (!w.length || match(n, w))).sort((a, b) => b.updatedAt - a.updatedAt);
+  res.innerHTML = r.length ? `<div class="list">${r.map(n => itemHTML(n, w, false)).join('')}</div>`
+    : `<div class="empty">${w.length ? 'لا نتائج' : 'لا صفحات هنا بعد. اضغط + لتدوين أول معلومة.'}</div>`;
+}
+
+function noteView(id, catId) {
+  const isNew = id === 'new', n = isNew ? null : notes.find(x => x.id === id);
+  if (!isNew && !n) { location.replace('#/'); return; }
+  const cid = isNew ? catId : n.catId;
+  $('#app').innerHTML = `<div class="barw"><div class="bar"><a class="ib" href="#/c/${cid}" id="back" aria-label="رجوع">→</a>
+  <small id="st" style="flex:1"></small><button class="ib" data-act="delnote" aria-label="حذف">🗑</button></div></div>
+  <div class="wrap"><input id="t" class="title" placeholder="العنوان" value="${esc(n?.title)}">
+  <select id="sel" class="inp" aria-label="الفئة">${cats.map(c => `<option value="${c.id}" ${c.id === cid ? 'selected' : ''}>${esc(c.name)}</option>`).join('')}</select>
+  <textarea id="b" class="body" placeholder="دوّن المعلومة هنا…">${esc(n?.body)}</textarea></div>`;
+  editorReady = true;
+  const t = $('#t'), b = $('#b'), sel = $('#sel'), st = $('#st');
+  let cur = isNew ? null : id, timer, created = n?.createdAt || Date.now();
+  const grow = () => { b.style.height = 'auto'; b.style.height = Math.max(b.scrollHeight, innerHeight * .55) + 'px'; };
+  function commit(flush) {
+    clearTimeout(timer);
+    if (!cur) {
+      if (!t.value.trim() && !b.value.trim()) return;
+      cur = doc(col('notes')).id;
+      if (!flush) history.replaceState(null, '', '#/n/' + cur);
+    }
+    setDoc(doc(db, 'users', user.uid, 'notes', cur), {catId: sel.value, title: t.value, body: b.value, updatedAt: Date.now(), createdAt: created}, {merge: true});
+    st.textContent = 'تم الحفظ';
+  }
+  const queue = () => { st.textContent = 'يحفظ…'; clearTimeout(timer); timer = setTimeout(() => commit(false), 700); };
+  pendingFlush = () => commit(true);
+  [t, b, sel].forEach(el => el.addEventListener('input', queue));
+  sel.addEventListener('change', queue);
+  b.addEventListener('input', grow);
+  grow();
+  if (isNew) t.focus();
+  $('#app').dataset.del = '';
+  window.__delNote = () => {
+    if (!confirm('حذف هذه الصفحة؟')) return;
+    clearTimeout(timer); pendingFlush = null;
+    if (cur) deleteDoc(doc(db, 'users', user.uid, 'notes', cur));
+    location.hash = '#/c/' + sel.value;
+  };
+}
+
+/* ---------- النوافذ السفلية ---------- */
+function closeSheet() { $('#sheet').innerHTML = ''; }
+function chips(k, opts) { return `<div class="row">${opts.map(([v, l]) => `<button class="chip ${String(theme[k]) === String(v) ? 'on' : ''}" data-act="set" data-k="${k}" data-v="${v}">${l}</button>`).join('')}</div>`; }
+function themeSheet() {
+  $('#sheet').innerHTML = `<div class="ov" data-act="close"><div class="sh" onclick="event.stopPropagation()">
+  <h2>المظهر</h2>
+  <p class="lb">اللون</p><div class="row">${COLORS.map(c => `<button class="sw ${theme.accent === c ? 'on' : ''}" style="--c:${c}" data-act="set" data-k="accent" data-v="${c}" aria-label="${c}"></button>`).join('')}<input type="color" id="ac" value="${theme.accent}" aria-label="لون مخصص"></div>
+  <p class="lb">الوضع</p>${chips('mode', [['auto', 'تلقائي'], ['light', 'فاتح'], ['dark', 'داكن']])}
+  <p class="lb">شكل الزوايا</p>${chips('radius', [[0, 'حادة'], [10, 'ناعمة'], [20, 'دائرية'], [30, 'كبسولة']])}
+  <p class="lb">شكل البطاقات</p>${chips('card', [['glass', 'زجاجية'], ['flat', 'مسطحة'], ['line', 'بحدود'], ['shadow', 'بظل']])}
+  <p class="lb">حجم الخط</p><input type="range" id="fs" min="15" max="22" value="${theme.fs}" style="width:100%;accent-color:var(--accent);margin-bottom:20px">
+  <p class="mut" style="margin:0 0 10px">${esc(user.email)}</p>
+  <div class="row"><button class="btn sec" data-act="logout">تسجيل الخروج</button><button class="btn" data-act="close">تم</button></div></div></div>`;
+}
+function catSheet(id) {
+  const c = cats.find(x => x.id === id); sheetColor = c?.color || COLORS[cats.length % COLORS.length];
+  $('#sheet').innerHTML = `<div class="ov" data-act="close"><div class="sh" onclick="event.stopPropagation()">
+  <h2>${c ? 'تعديل الفئة' : 'فئة جديدة'}</h2>
+  <input id="cn" class="inp" placeholder="اسم الفئة" value="${esc(c?.name)}" maxlength="40">
+  <div class="row" id="cc">${COLORS.map(x => `<button class="sw ${x === sheetColor ? 'on' : ''}" style="--c:${x}" data-act="catcolor" data-v="${x}" aria-label="${x}"></button>`).join('')}</div>
+  <div class="row"><button class="btn" data-act="savecat" data-id="${id || ''}">حفظ</button><button class="btn sec" data-act="close">إلغاء</button>
+  ${c ? `<button class="btn dng" data-act="delcat" data-id="${id}">حذف الفئة</button>` : ''}</div></div></div>`;
+  setTimeout(() => !c && $('#cn')?.focus(), 50);
+}
+
+/* ---------- الأحداث ---------- */
+document.addEventListener('click', async e => {
+  const t = e.target.closest('[data-act],[data-go]'); if (!t) return;
+  const act = t.dataset.act, id = t.dataset.id;
+  if (!act) { location.hash = t.dataset.go; return; }
+  e.stopPropagation();
+  if (act === 'close') closeSheet();
+  else if (act === 'login') {
+    const p = new GoogleAuthProvider();
+    try { await signInWithPopup(auth, p); } catch (err) {
+      if (['auth/popup-blocked', 'auth/operation-not-supported-in-this-environment', 'auth/cancelled-popup-request'].includes(err.code)) signInWithRedirect(auth, p);
+      else if (err.code === 'auth/unauthorized-domain') toast('أضف نطاق الموقع في Firebase ← Authentication ← Settings ← Authorized domains');
+      else if (err.code !== 'auth/popup-closed-by-user') toast('تعذّر تسجيل الدخول: ' + err.code);
+    }
+  }
+  else if (act === 'logout') { closeSheet(); location.hash = '#/'; signOut(auth); }
+  else if (act === 'theme') themeSheet();
+  else if (act === 'set') { setTheme({[t.dataset.k]: t.dataset.k === 'radius' ? +t.dataset.v : t.dataset.v}); themeSheet(); }
+  else if (act === 'newcat') catSheet();
+  else if (act === 'editcat') catSheet(id);
+  else if (act === 'catcolor') { sheetColor = t.dataset.v; document.querySelectorAll('#cc .sw').forEach(s => s.classList.toggle('on', s.dataset.v === sheetColor)); }
+  else if (act === 'savecat') {
+    const name = $('#cn').value.trim(); if (!name) { $('#cn').focus(); return; }
+    const cid = id || doc(col('cats')).id, old = cats.find(x => x.id === cid);
+    setDoc(doc(db, 'users', user.uid, 'cats', cid), {name, color: sheetColor, createdAt: old?.createdAt || Date.now()}, {merge: true});
+    closeSheet();
+  }
+  else if (act === 'delcat') {
+    if (!confirm('سيتم حذف الفئة وكل صفحاتها. متابعة؟')) return;
+    const batch = writeBatch(db);
+    notes.filter(n => n.catId === id).forEach(n => batch.delete(doc(db, 'users', user.uid, 'notes', n.id)));
+    batch.delete(doc(db, 'users', user.uid, 'cats', id));
+    batch.commit(); closeSheet(); location.hash = '#/';
+  }
+  else if (act === 'newnote') location.hash = '#/n/new/' + id;
+  else if (act === 'delnote') window.__delNote();
+});
+document.addEventListener('input', e => {
+  if (e.target.id === 'q') { q = e.target.value; fillHome(); }
+  else if (e.target.id === 'cq') { cq = e.target.value; fillCat(R()[1]); }
+  else if (e.target.id === 'fs') setTheme({fs: +e.target.value}, false);
+  else if (e.target.id === 'ac') setTheme({accent: e.target.value}, false);
+});
+document.addEventListener('change', e => {
+  if (e.target.id === 'fs') setTheme({fs: +e.target.value});
+  else if (e.target.id === 'ac') { setTheme({accent: e.target.value}); themeSheet(); }
+});
+matchMedia('(prefers-color-scheme:dark)').addEventListener('change', applyTheme);
+</script>
+</body>
+</html>
