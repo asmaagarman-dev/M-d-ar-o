@@ -287,7 +287,7 @@ function noteView(id, catId) {
 function closeSheet() { $('#sheet').innerHTML = ''; }
 function chips(k, opts) { return `<div class="row">${opts.map(([v, l]) => `<button class="chip ${String(theme[k]) === String(v) ? 'on' : ''}" data-act="set" data-k="${k}" data-v="${v}">${l}</button>`).join('')}</div>`; }
 function themeSheet() {
-  $('#sheet').innerHTML = `<div class="ov" data-act="close"><div class="sh" onclick="event.stopPropagation()">
+  $('#sheet').innerHTML = `<div class="ov" data-act="close"><div class="sh">
   <h2>المظهر</h2>
   <p class="lb">اللون</p><div class="row">${COLORS.map(c => `<button class="sw ${theme.accent === c ? 'on' : ''}" style="--c:${c}" data-act="set" data-k="accent" data-v="${c}" aria-label="${c}"></button>`).join('')}<input type="color" id="ac" value="${theme.accent}" aria-label="لون مخصص"></div>
   <p class="lb">الوضع</p>${chips('mode', [['auto', 'تلقائي'], ['light', 'فاتح'], ['dark', 'داكن']])}
@@ -299,7 +299,7 @@ function themeSheet() {
 }
 function catSheet(id) {
   const c = cats.find(x => x.id === id); sheetColor = c?.color || COLORS[cats.length % COLORS.length];
-  $('#sheet').innerHTML = `<div class="ov" data-act="close"><div class="sh" onclick="event.stopPropagation()">
+  $('#sheet').innerHTML = `<div class="ov" data-act="close"><div class="sh">
   <h2>${c ? 'تعديل الفئة' : 'فئة جديدة'}</h2>
   <input id="cn" class="inp" placeholder="اسم الفئة" value="${esc(c?.name)}" maxlength="40">
   <div class="row" id="cc">${COLORS.map(x => `<button class="sw ${x === sheetColor ? 'on' : ''}" style="--c:${x}" data-act="catcolor" data-v="${x}" aria-label="${x}"></button>`).join('')}</div>
@@ -312,6 +312,7 @@ function catSheet(id) {
 document.addEventListener('click', async e => {
   const t = e.target.closest('[data-act],[data-go]'); if (!t) return;
   const act = t.dataset.act, id = t.dataset.id;
+  if (t.classList.contains('ov') && e.target !== t) return;
   if (!act) { location.hash = t.dataset.go; return; }
   e.stopPropagation();
   if (act === 'close') closeSheet();
